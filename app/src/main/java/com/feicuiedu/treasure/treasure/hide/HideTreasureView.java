@@ -1,4 +1,4 @@
-package com.feicuiedu.treasure.treasure.home.hide;
+package com.feicuiedu.treasure.treasure.hide;
 
 import com.hannesdorfmann.mosby.mvp.MvpView;
 

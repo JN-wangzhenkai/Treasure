@@ -1,4 +1,4 @@
-package com.feicuiedu.treasure.treasure;
+package com.feicuiedu.treasure.treasure.home;
 
 
 import com.baidu.mapapi.model.LatLng;
@@ -6,9 +6,11 @@ import com.baidu.mapapi.utils.DistanceUtil;
 import com.feicuiedu.treasure.treasure.home.map.MapFragment;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 @SuppressWarnings("unused")
 /** 获取宝藏列表数据时，的实体类**/
-public class Treasure {
+public class Treasure implements Serializable {
 
     @SerializedName("tdid")
     private int id;

@@ -1,4 +1,4 @@
-package com.feicuiedu.treasure.treasure.home.hide;
+package com.feicuiedu.treasure.treasure.hide;
 
 import com.feicuiedu.treasure.net.NetClient;
 import com.hannesdorfmann.mosby.mvp.MvpNullObjectBasePresenter;
@@ -15,23 +15,23 @@ public class HideTreasurePresenter extends MvpNullObjectBasePresenter<HideTreasu
     private Call<HideTreasureResult> call;
 
     public void hide(HideTreasure hideTreasure) {
-        if(call != null) call.cancel();
-        call=  NetClient.getInstance().getTreasureApi().hideTreasure(hideTreasure);
+        if (call != null) call.cancel();
+        call = NetClient.getInstance().getTreasureApi().hideTreasure(hideTreasure);
         call.enqueue(callback);
     }
 
     private Callback<HideTreasureResult> callback = new Callback<HideTreasureResult>() {
         @Override public void onResponse(Call<HideTreasureResult> call, Response<HideTreasureResult> response) {
             getView().hideProgress();
-            if(response != null && response.isSuccessful()){
+            if (response != null && response.isSuccessful()) {
                 HideTreasureResult result = response.body();
-                if(result == null){
+                if (result == null) {
                     getView().showMessage("unknown erro");
                     return;
                 }
-                if(result.code == 1){
+                if (result.code == 1) {
                     getView().navigateToHome();
-                }else{
+                } else {
                     getView().showMessage(result.getMsg());
                 }
             }
@@ -45,7 +45,7 @@ public class HideTreasurePresenter extends MvpNullObjectBasePresenter<HideTreasu
 
     @Override public void detachView(boolean retainInstance) {
         super.detachView(retainInstance);
-        if(call != null){
+        if (call != null) {
             call.cancel();
             call = null;
         }

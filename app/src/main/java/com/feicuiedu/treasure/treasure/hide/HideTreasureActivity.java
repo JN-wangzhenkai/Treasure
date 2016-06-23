@@ -1,4 +1,4 @@
-package com.feicuiedu.treasure.treasure.home.hide;
+package com.feicuiedu.treasure.treasure.hide;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -20,19 +20,20 @@ import com.hannesdorfmann.mosby.mvp.MvpActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class HideTreasureActivity extends MvpActivity<HideTreasureView,HideTreasurePresenter> implements HideTreasureView{
+public class HideTreasureActivity extends MvpActivity<HideTreasureView, HideTreasurePresenter> implements HideTreasureView {
 
     private ActivityUtils activityUtils;
 
     @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.et_description)EditText etDescription;
+    @Bind(R.id.et_description) EditText etDescription;
 
     private static final String EXTRA_KEY_TITLE = "key_title";
     private static final String EXTRA_KEY_LOCATION = "key_location";
     private static final String EXTRA_KEY_LAT_LNG = "key_latlng";
     private static final String EXTRA_KEY_ALTITUDE = "key_altitude";
+
     //
-    public static void open(Context context, String title, String location,LatLng latLng, double altitude ){
+    public static void open(Context context, String title, String location, LatLng latLng, double altitude) {
         Intent intent = new Intent(context, HideTreasureActivity.class);
         intent.putExtra(EXTRA_KEY_TITLE, title);
         intent.putExtra(EXTRA_KEY_LOCATION, location);
@@ -100,7 +101,7 @@ public class HideTreasureActivity extends MvpActivity<HideTreasureView,HideTreas
 
     @Override
     public void hideProgress() {
-        if(progressDialog != null) {
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
     }
